@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<title>Page title</title>
+				<link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.min.css">
+				<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+				
+				<link rel="stylesheet" href="main.css">
+				<link rel="stylesheet" href="js/jquery-ui.min.css">
+</head>
+<body >
+				
+				<nav class="navbar navbar-light bg-light"> 
+				<div class="row">
+						<form class="form-inline col-sm-7 col-lg-5 ">
+							 <input class="form-control mr-sm-2 d-inline me-0 w-50" type="search" placeholder="Search City..." aria-label="Search">
+							 <button class="btn btn-success my-2 my-sm-0 d-inline " type="submit">Search</button> 
+							 <span class=" col-sm-4 col-lg-auto d-inline-flex w-25 justify-content-end align-items-middle bi bi-sliders" data-bs-toggle="modal" data-bs-target="#setting"></span>
+					</form> 
+			</div>
+</nav>
+
+<div class="container bg-dark">
+		<div class="row text-light">
+				 <div class="col-sm-12 col-md-5" id="svg-animation">
+							<img src="svg/cloudy/cloud-moon.svg" class="w-50 text-end" alt="" id="wicon">
+				 </div>	
+			 	 <div id="country" class="col-auto col-md-5  display-4 text-end w-100 opacity-75" style="">
+								CNT/State
+				 </div>					
+		</div>
+		<div class="temperature text-light mt-5">
+				<div id="temperature-degree" class="temperature-degree opacity-25 text-center fs-1 lead display-1">
+								temperature
+				</div>
+				<div id="temperature-depscription" class="temperature-desp text-center text-capitalize mt-3 opacity-75 lead fw-3 border border-1 rounded rounded-3">
+								weather description
+				</div>
+		</div>
+		<div style="box-shadow: 2px 2px 4px 2px #9bca33"id="testing" class="text-center alert alert-warning bg-dark text-warning mt-3" role="alert"></div>
+</div>
+			
+		
+<div class="modal fade" id="setting" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
+				<div class="modal-dialog"> 
+						<div class="modal-content"> <div class="modal-header"> 
+								<h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-gear"><img src="svg/gear.svg" alt=""></i> Weather Settings</h5> 
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			 		 </div> 
+				  <div class="modal-body"> 
+				  				
+				  <table class="table table-light table-hover"> 
+				  		<thead> 
+				  			<tr> 
+				  					<th scope="col">Temperature Unit</th> 
+				  					<th scope="col">
+				  							<select class="form-select" id="temp-opt">
+				  									<option value="celcius">celcius °c</option>
+				  									<option value="kelvin">kelvin °k</option>
+				  							   <option value="ferenheit">farenheit °f</option>
+				  							</select>
+				  					</th> 
+				  			</tr>
+				  			
+				  	 </thead> 
+				  	 <tbody> 
+				  	 		
+				  	 </tbody>
+				  </table>
+
+				  
+				   </div>   
+				  <div class="modal-footer"> 
+						<button type="button" class="btn btn-secondary research" data-bs-dismiss="modal">Research</button> 
+						<button type="button" id="sett-sub" class="btn btn-success">Save changes</button> 
+			   </div> 
+		</div> 
+</div>
+</div>
+
+<div class="modal fade" id="summary" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
+				<div class="modal-dialog"> 
+						<div class="modal-content"> <div class="modal-header"> 
+								<h5 class="modal-title text-center" id="exampleModalLabel"> Weather Summary</h5> 
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			 		 </div> 
+				  <div class="modal-body"> 
+				  				<table class="table">
+				  								
+				  				<div id="location-info">
+				  						<h6 class="border-bottom">Main Info</h6>
+				  						<tr>
+				  								<td>country</td>
+				  								<td id="model-country">America</td>
+				  						</tr>
+				  						<tr>
+				  								<td>city</td>
+				  								<td id="state">Florida</td>
+				  						</tr>
+				  						<tr>
+				  								<td>description</td>
+				  								<td id="description">cloudy</td>
+				  						</tr>
+				  						<tr>
+				  								<td>datetime</td>
+				  								<td id="datetime">23:34:11</td>
+				  						</tr>
+				  				</div>
+				  				</table>
+				  				
+				  				<table class="table" id="main-info">
+				  					 <h6 class="border-bottom">Temperature Info</h6>
+				  						<tr>
+				  								<td>temperature</td>
+				  								<td id="temp">45°c</td>
+				  						</tr>
+				  						
+				  						<tr>
+				  								<td>max-temperature</td>
+				  								<td id="temp-max">45°c</td>
+				  						</tr>
+				  						
+				  						<tr>
+				  								<td>min-temperature</td>
+				  								<td id="temp-min">45°c</td>
+				  						</tr>
+				  						
+				  						
+				  						<tr>
+				  								<td>pressure</td>
+				  								<td id="pressure">34mmHg</td>
+				  						</tr>
+				  						
+				  						<tr>
+				  								<td>Humidity</td>
+				  								<td id="humidity">22</td>
+				  						</tr>
+				  				</table>
+				  						
+				  				<table class="table" id="wind-info">
+				  						<h6 class="border-bottom">Wind Info</h6>
+				  						<tr>
+				  								<td>wind speed</td>
+				  								<td id="speed">45°c</td>
+				  						</tr>
+				  						
+				  						<tr>
+				  								<td>wind-deg</td>
+				  								<td id="deg">45°c</td>
+				  						</tr>
+				  						
+				  						<tr>
+				  								<td>wind gust</td>
+				  								<td id="gust">cloudy</td>
+				  						</tr>
+				  				</table>
+				  	</div> 
+		</div> 
+</div>
+</div>
+					 
+
+		
+		
+		<script src="js/jquery-3.6.0.js"></script>
+		<script src="bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="js/gsap.min.js"></script>
+			
+		
+</body>
+</html>

@@ -1,0 +1,30 @@
+#country{
+				background: -webkit-linear-gradient(#eee, #333); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+form input{
+				width: 50%;
+}
+
+#setting{
+				height:100vh;
+				
+}
+
+.container{
+				height: 100vh;
+}
+
+.rotate{
+				animation: rotate 3s infinite;
+}
+
+@keyframes rotate{
+				0%{
+								
+				}100%{
+								transform: rotate(-34deg);
+								
+								color: #e380ff;
+				}
+}
