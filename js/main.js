@@ -46,7 +46,7 @@ function showPosition(position) {
   }
   
 function getWeatherDetails(lon,lat) {
-				 fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`)
+				 fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`)
 				 .then(response=>{
 				 				return response.json();
 				 })
